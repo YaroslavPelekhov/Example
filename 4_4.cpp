@@ -2,8 +2,8 @@
 
 
 
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 template <typename IndexIterator, typename ElemIterator>
 ElemIterator myremove(IndexIterator idx_start, IndexIterator idx_end,
