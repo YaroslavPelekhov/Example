@@ -1,0 +1,59 @@
+
+
+
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <numbers>
+
+class Rectangle : public Figure {
+    double width, height;
+public:
+    Rectangle(double width, double height) : width(width), height(height) {}
+
+    double get_square() const override {
+        return width * height;
+    }
+
+    static Figure* make(const std::string& input) {
+        std::istringstream stream(input);
+        double w, h;
+        stream >> w >> h;
+        return new Rectangle(w, h);
+    }
+};
+
+class Square : public Figure {
+    double side;
+public:
+    Square(double side) : side(side) {}
+
+    double get_square() const override {
+        return side * side;
+    }
+
+    static Figure* make(const std::string& input) {
+        std::istringstream stream(input);
+        double s;
+        stream >> s;
+        return new Square(s);
+    }
+};
+
+class Circle : public Figure {
+    double radius;
+public:
+    Circle(double radius) : radius(radius) {}
+
+    double get_square() const override {
+        return std::numbers::pi * radius * radius;
+    }
+
+    static Figure* make(const std::string& input) {
+        std::istringstream stream(input);
+        double r;
+        stream >> r;
+        return new Circle(r);
+    }
+};
